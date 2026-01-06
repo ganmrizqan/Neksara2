@@ -1,0 +1,30 @@
+@model Topic
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Edit Topic</h2>
+<hr />
+
+<form method="post">
+    <input type="hidden" name="TopicId" value="@Model.TopicId" />
+
+    <input name="TopicName" value="@Model.TopicName" /><br /><br />
+
+    <select name="CategoryId">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <option value="@category.CategoryId"
+                selected="@category.CategoryId == Model.CategoryId">
+                @category.CategoryName
+            </option>
+        }
+    </select><br /><br />
+
+    <textarea name="Description">@Model.Description</textarea><br /><br />
+
+    <input name="PictTopic" value="@Model.PictTopic" /><br /><br />
+
+    <input name="VideoUrl" value="@Model.VideoUrl" /><br /><br />
+
+    <button>Update</button>
+</form>

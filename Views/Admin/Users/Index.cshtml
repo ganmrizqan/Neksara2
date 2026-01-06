@@ -1,0 +1,49 @@
+@model List<Admin>
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Manage User</h2>
+<hr />
+
+<form method="get">
+    <input name="search" placeholder="Search name / email" />
+
+    <select name="role">
+        <option value="">All</option>
+        <option value="Admin">Admin</option>
+        <option value="SuperAdmin">Super Admin</option>
+    </select>
+
+    <button>Apply</button>
+</form>
+
+<br />
+
+<a asp-controller="Users" asp-action="Create" class="btn btn-primary">+ Create New User</a>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Created At</th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var user in Model)
+{
+    <tr>
+        <td>@user.Name</td>
+        <td>@user.Email</td>
+        <td>@user.Role</td>
+        <td>@user.CreatedAt.ToString("dd MMM yyyy")</td>
+        <td>
+            <a asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id" class="btn btn-warning">Edit</a> |
+            <form method="post" 
+                asp-controller="Users" asp-action="Delete" asp-route-id="@user.Id" 
+                style="display:inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+}

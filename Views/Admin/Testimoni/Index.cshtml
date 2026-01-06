@@ -1,0 +1,63 @@
+@model List<Testimoni>
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Testimoni</h2>
+<hr />
+
+<form method="get">
+    <input name="search" placeholder="Search..." />
+
+    <select name="sort">
+        <option value="name-asc">Default</option>
+        <option value="name-asc">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="view_asc">Highest Rating</option>
+        <option value="view_desc">Lowest Rating</option>
+    </select>
+
+    <select name="rating">
+        <option value="">All Star</option>
+        @for (int i = 1; i <= 5; i++)
+        {
+            <option value="@i">@i ⭐</option>
+        }
+    </select>
+
+    <button>Filter</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Testimoni</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.UserName</td>
+        <td>@item.UserRole</td>
+        <td>@item.Deskripsi</td>
+        <td>
+            @for (int i = 1; i <= 5; i++)
+            {
+                <span>@(i <= item.Rating ? "⭐" : "")</span>
+            }
+        </td>
+        <td>
+            <form method="post" asp-controller="Testimoni" asp-action="Approve" asp-route-id="@item.TestimoniId" 
+                style="display:inline">
+                <button>Approve</button>
+            </form> |
+            <form method="post" asp-controller="Testimoni" asp-action="Reject" asp-route-id="@item.TestimoniId" 
+                style="display:inline">
+                <button>Reject</button>
+            </form>
+        </td>
+    </tr>
+}
+</table>

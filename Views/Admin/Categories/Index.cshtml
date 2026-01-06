@@ -1,0 +1,42 @@
+@model List<Category>
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Categories</h2>
+<hr />
+
+<form>
+    <input type="text" name="search" placeholder="Search..." />
+    <select name="sort">
+        <option value="name-asc">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="topic-desc">Most Topics (Desc)</option>
+        <option value="topic-asc">Least Topics (Asc)</option>
+        <option value="view_desc">Most Views (Desc)</option>
+        <option value="view_asc">Least Views (Asc)</option>
+    </select>
+    <button>Filter</button>
+</form>
+
+<table>
+    <tr>
+        <th>Category Name</th>
+        <th>Topics</th>
+        <th>Views</th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var category in Model)
+{
+    <tr>
+        <td>@category.CategoryName</td>
+        <td>@category.Topics.Count</td>
+        <td>@category.Topics.Sum(t => t.ViewCount)</td>
+        <td>
+            <form method="post" action="/admin/categories/delete/@category.CategoryId">
+                <button>Delete</button>
+            </form>
+        </td>
+    </tr>
+}
+</table>

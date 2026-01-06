@@ -1,0 +1,58 @@
+@model List<Topic>
+
+@{ Layout = "_AdminLayout" }
+
+<h2>Topics</h2>
+<hr />
+
+<form method="get">
+   <input name="search" placeholder="Search..."/>
+
+   <select name="sort">
+      <option value="name-asc">Default</option>
+      <option value="name-asc">Name (A-Z)</option>
+      <option value="name-desc">Name (Z-A)</option>
+      <option value="view_desc">Most Views (Desc)</option>
+      <option value="view_asc">Least Views (Asc)</option>
+   </select>
+
+   <button type="submit">Search</button>
+</form>
+
+<br />
+
+<a asp-controller="Topics" asp-action="Create" class="btn btn-primary">+ Create New Topic</a>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Topic Name</th>
+        <th>Category</th>
+        <th>Total View</th>
+        <th>Created At</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var topic in Model)
+{
+    <tr>
+        <td>@topic.TopicName</td>
+        <td>@topic.Category.CategoryName</td>
+        <td>@topic.ViewCount</td>
+        <td>@topic.CreatedAt</td>
+        <td>
+            @for (int i = 1; i <= 5; i++)
+            {
+                <span>@(i <= topic.Rating ? "⭐" : "")</span>
+            }
+        </td>
+        <td>
+            <a asp-controller="Topics" asp-action="Edit" asp-route-id="@topic.TopicId" class="btn btn-warning">Edit</a>
+            |
+            <form method="post" asp-controller="Topics" asp-action="Delete" asp-route-id="@topic.TopicId" style="display:inline">
+                <button>Delete</button>
+            </form>
+        </td>
+    </tr>
+}
+</table>

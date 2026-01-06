@@ -1,0 +1,40 @@
+@model Topic
+
+<h2>@model.Name</h2>
+<p>@model.Description</p>
+
+@if (TempData["FeedbackMessage"] != null)
+{
+    <div class="toast">
+        @TempData["FeedbackMessage"]
+    </div>
+}
+
+<h3>Give Feedback</h3>
+<form method="post" asp-action="Submit" asp-route-id="@model.Id">
+    <input name="UserName" placeholder="Your Name" /><br />
+    <input name="UserRole" placeholder="Your Role" /><br />
+
+    <select name="Rating">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <span>
+                @(i <= Math.Round((double)ViewBag.AverageRating) ? "⭐" : "")
+            </span>
+            <!-- <option value="@i">@i Star</option> -->
+        }
+    </select><br />
+
+    <textarea name="Description" placeholder="Your Feedback"></textarea><br />
+
+    <button>Submit</button>
+</form>
+
+<h3>User Feedback</h3>
+@foreach (var feedback in ViewBag.Feedbacks)
+{
+    <p>
+        <b>@feedback.UserName</b> ⭐ @feedback.Rating <br />
+        @feedback.Description
+    </p>
+}

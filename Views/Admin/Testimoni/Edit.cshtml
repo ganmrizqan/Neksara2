@@ -1,0 +1,22 @@
+@model Testimoni
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Edit Testimoni</h2>
+<hr />
+
+<form method="post">
+    <input type="hidden" name="TestimoniId" value="@Model.TestimoniId" />
+    <input name="Name" value="@Model.Name" /><br /><br />
+    <input name="Job" value="@Model.Job" /><br /><br />
+    <textarea name="Testimonial">@Model.Testimonial</textarea><br /><br />
+
+    <select name="Rating">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <option value="@i" selected="@(i == Model.Rating)">@i</option>
+        }
+    </select><br /><br />
+
+    <button>Update</button>
+</form>

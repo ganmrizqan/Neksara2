@@ -1,0 +1,16 @@
+@model Testimoni
+
+<form method="post">
+    <input name="UserName" placeholder="Name" />
+    <input name="UserRole" placeholder="Role" />
+    <textarea name="Deskripsi" placeholder="Tulis testimoni"></textarea>
+
+    <select name="Rating">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <option value="@i">@i ⭐</option>
+        }
+    </select>
+
+    <button>Kirim</button>
+</form>

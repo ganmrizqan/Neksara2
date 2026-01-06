@@ -1,0 +1,145 @@
+@model List<ArchiveItem>
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Archive Page</h2>
+
+<form class="mb-4">
+    <input name="search" class="form-control w-25 d-inline"
+           placeholder="Search archive..." />
+    <button class="btn btn-secondary">Search</button>
+</form>
+
+<hr />
+
+<!-- CATEGORY -->
+<h4>Deleted Categories</h4>
+<table class="table table-bordered">
+<tr>
+    <th>Name</th>
+    <th>Action</th>
+</tr>
+@foreach (var c in ViewBag.Categories)
+{
+<tr>
+    <td>@c.Name</td>
+    <td>
+        <form asp-action="Restore" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="Category" />
+            <input type="hidden" name="id" value="@c.Id" />
+            <button class="btn btn-success btn-sm">Restore</button>
+        </form>
+
+        <form asp-action="DeletePermanent" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="Category" />
+            <input type="hidden" name="id" value="@c.Id" />
+            <button class="btn btn-danger btn-sm">
+                Delete Permanent
+            </button>
+        </form>
+    </td>
+</tr>
+}
+</table>
+
+<hr />
+
+<!-- TOPIC -->
+<h4>Deleted Topics</h4>
+<table class="table table-bordered">
+<tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Action</th>
+</tr>
+@foreach (var t in ViewBag.Topics)
+{
+<tr>
+    <td>@t.Name</td>
+    <td>@t.Category?.Name</td>
+    <td>
+        <form asp-action="Restore" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="Topic" />
+            <input type="hidden" name="id" value="@t.Id" />
+            <button class="btn btn-success btn-sm">Restore</button>
+        </form>
+
+        <form asp-action="DeletePermanent" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="Topic" />
+            <input type="hidden" name="id" value="@t.Id" />
+            <button class="btn btn-danger btn-sm">
+                Delete Permanent
+            </button>
+        </form>
+    </td>
+</tr>
+}
+</table>
+
+<hr />
+
+<!-- FEEDBACK TOPIK -->
+<h4>Deleted Feedback Topik</h4>
+<table class="table table-bordered">
+<tr>
+    <th>User</th>
+    <th>Topic</th>
+    <th>Action</th>
+</tr>
+@foreach (var f in ViewBag.TopicFeedbacks)
+{
+<tr>
+    <td>@f.UserName</td>
+    <td>@f.Topic?.Name</td>
+    <td>
+        <form asp-action="Restore" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="TopicFeedback" />
+            <input type="hidden" name="id" value="@f.Id" />
+            <button class="btn btn-success btn-sm">Restore</button>
+        </form>
+
+        <form asp-action="DeletePermanent" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="TopicFeedback" />
+            <input type="hidden" name="id" value="@f.Id" />
+            <button class="btn btn-danger btn-sm">
+                Delete Permanent
+            </button>
+        </form>
+    </td>
+</tr>
+}
+</table>
+
+<hr />
+
+<!-- TESTIMONI -->
+<h4>Deleted Testimoni</h4>
+<table class="table table-bordered">
+<tr>
+    <th>User</th>
+    <th>Testimoni</th>
+    <th>Action</th>
+</tr>
+@foreach (var t in ViewBag.Testimonis)
+{
+<tr>
+    <td>@t.UserName</td>
+    <td>@t.Description</td>
+    <td>
+        <form asp-action="Restore" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="GeneralTestimoni" />
+            <input type="hidden" name="id" value="@t.Id" />
+            <button class="btn btn-success btn-sm">Restore</button>
+        </form>
+
+        <form asp-action="DeletePermanent" method="post" class="d-inline">
+            <input type="hidden" name="entity" value="GeneralTestimoni" />
+            <input type="hidden" name="id" value="@t.Id" />
+            <button class="btn btn-danger btn-sm">
+                Delete Permanent
+            </button>
+        </form>
+    </td>
+</tr>
+}
+</table>

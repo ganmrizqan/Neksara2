@@ -1,0 +1,23 @@
+@model Testimoni
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Create New Testimoni</h2>
+<hr />
+
+<form method="post">
+    <input name="Name" placeholder="Name..." /><br /><br />
+    <input name="Job" placeholder="Job..." /><br /><br />
+    <textarea name="Testimonial" placeholder="Testimonial..."></textarea><br /><br />
+
+    <label for="Rating">Rating:</label>
+    <select name="Rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br /><br />
+
+    <button>Save</button>
+</form>

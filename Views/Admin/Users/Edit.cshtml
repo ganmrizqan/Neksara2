@@ -1,0 +1,21 @@
+@model Admin
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Edit User</h2>
+<hr />
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <input name="Name" value="@Model.Name" />
+    <input name="Email" value="@Model.Email" />
+    <input name="Password" value="@Model.Password" />
+
+    <select name="Role">
+        <option value="Admin" selected="@(Model.Role == "Admin")">Admin</option>
+        <option value="SuperAdmin" selected="@(Model.Role == "SuperAdmin")">Super Admin</option>
+    </select><br /><br />
+
+    <button>Update</button>
+</form>

@@ -1,0 +1,8 @@
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.csproj.AssemblyReference.cache
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.AssemblyInfoInputs.cache
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.AssemblyInfo.cs
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.csproj.CoreCompileInputs.cache
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.RazorAssemblyInfo.cache
+D:\Project\Paradaya\NeksaraArief\obj\Debug\net8.0\NeksaraArief.RazorAssemblyInfo.cs

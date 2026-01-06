@@ -1,0 +1,38 @@
+@model List<TopicFeedback>
+
+@{ Layout = "_AdminLayout"; }
+
+<h2>Topic Feedback</h2>
+<hr />
+
+<table border="1">
+    <tr>
+        <th>User Name</th>
+        <th>User Role</th>
+        <th>Topic Name</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var feedback in Model)
+    {
+        <tr>
+            <td>@feedback.UserName</td>
+            <td>@feedback.UserRole</td>
+            <td>@feedback.Topic.TopicName</td>
+            <td>@feedback.Rating ⭐</td>
+            <td>@feedback.Description</td>
+            <td>
+                <form method="post" asp-action="Approve" asp-route-id="@feedback.TopicFeedbackId"
+                    style="display:inline">
+                    <button>Approve</button>
+                </form>
+
+                <form method="post" asp-action="Reject" asp-route-id="@feedback.TopicFeedbackId"
+                    style="display:inline">
+                    <button>Reject</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
