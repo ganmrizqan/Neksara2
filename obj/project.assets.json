@@ -4007,24 +4007,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gan_m\\.nuget\\packages\\": {}
+    "C:\\Users\\gan_m\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Paradaya\\NeksaraArief\\NeksaraArief.csproj",
+      "projectUniqueName": "C:\\Users\\gan_m\\Downloads\\NITIP\\Paradaya\\NeksaraArief\\NeksaraArief\\NeksaraArief.csproj",
       "projectName": "NeksaraArief",
-      "projectPath": "D:\\Project\\Paradaya\\NeksaraArief\\NeksaraArief.csproj",
+      "projectPath": "C:\\Users\\gan_m\\Downloads\\NITIP\\Paradaya\\NeksaraArief\\NeksaraArief\\NeksaraArief.csproj",
       "packagesPath": "C:\\Users\\gan_m\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Paradaya\\NeksaraArief\\obj\\",
+      "outputPath": "C:\\Users\\gan_m\\Downloads\\NITIP\\Paradaya\\NeksaraArief\\NeksaraArief\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\gan_m\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gan_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4042,7 +4049,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -4086,7 +4094,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

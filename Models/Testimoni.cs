@@ -1,4 +1,6 @@
-namespace NeksaraArief.Models;
+using System.ComponentModel.DataAnnotations;
+
+namespace NeksaraArief.Models
 {
     public class Testimoni
     {
@@ -11,6 +13,6 @@ namespace NeksaraArief.Models;
         public int Rating { get; set; }
         public bool IsApproved { get; set; }
         public bool ISDeleted { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
     }
 }

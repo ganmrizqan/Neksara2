@@ -1,3 +1,5 @@
+using NeksaraArief.Models;
+
 namespace NeksaraArief.Service.Interfaces
 {
     public interface ITopicService
@@ -10,5 +12,8 @@ namespace NeksaraArief.Service.Interfaces
         void SoftDelete(int id);
         double GetAverageRating(int topicId);
         void IncrementView(int id);
+
+        List<Topic> GetPublicByCategory(int categoryId);
+        List<Topic> GetPopular(int take = 6);
     }
 }

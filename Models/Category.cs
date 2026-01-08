@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NeksaraArief.Models;
+namespace NeksaraArief.Models
 {
     public class Category
     {

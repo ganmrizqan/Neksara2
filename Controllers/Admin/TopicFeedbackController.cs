@@ -5,7 +5,7 @@ using NeksaraArief.Models;
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/topic-feedback")]
-    public class TopicFeedbackController : Controller
+    public class TopicFeedbackController : BaseAuthenticatedController
     {
         private readonly ITopicFeedbackService _topicFeedbackService;
 

@@ -1,20 +1,31 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NeksaraArief.Models;
+using NeksaraArief.Service.Interfaces;
+using NeksaraArief.Service.Implementations;
 
 namespace NeksaraArief.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ICategoryService _categoryService;
+    private readonly ITopicService _topicService;
+    private readonly ITestimoniService _testimoniService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ICategoryService categoryService, ITopicService topicService, ITestimoniService testimoniService)
     {
         _logger = logger;
+        _categoryService = categoryService;
+        _topicService = topicService;
+        _testimoniService = testimoniService;
     }
 
     public IActionResult Index()
     {
+        ViewBag.Categories = _categoryService.GetPublic();
+        ViewBag.Topics = _topicService.GetPopular(6);
+        ViewBag.Testimonials = _testimoniService.GetApproved();
         return View();
     }
 

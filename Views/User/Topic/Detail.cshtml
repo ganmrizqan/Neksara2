@@ -1,7 +1,7 @@
 @model Topic
 
-<h2>@model.Name</h2>
-<p>@model.Description</p>
+<h2>@Model.TopicName</h2>
+<p>@Model.Description</p>
 
 @if (TempData["FeedbackMessage"] != null)
 {
@@ -11,7 +11,7 @@
 }
 
 <h3>Give Feedback</h3>
-<form method="post" asp-action="Submit" asp-route-id="@model.Id">
+<form method="post" asp-action="Submit" asp-route-id="@Model.TopicId">
     <input name="UserName" placeholder="Your Name" /><br />
     <input name="UserRole" placeholder="Your Role" /><br />
 

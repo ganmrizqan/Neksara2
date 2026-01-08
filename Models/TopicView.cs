@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NeksaraArief.Models;
+namespace NeksaraArief.Models
 {
     public class TopicView
     {

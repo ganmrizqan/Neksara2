@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using NeksaraArief.Service.Interfaces;
+using NeksaraArief.Service.Implementations;
 using NeksaraArief.Models;
 
 namespace NeksaraArief.Controllers.Admin
 {
-    public class ManageAdminController : BaseAdminController
+    public class ManageAdminController : BaseAuthenticatedController
     {
         private readonly IAuthService _authService;
 
@@ -26,7 +28,7 @@ namespace NeksaraArief.Controllers.Admin
 
         public IActionResult Index()
         {
-            return View(_authService.GetAdmins());
+            return View(_authService.GetAdminUsers());
         }
 
         public IActionResult Create()
@@ -37,26 +39,26 @@ namespace NeksaraArief.Controllers.Admin
         [HttpPost]
         public IActionResult Create(AdminUser user)
         {
-            _authService.CreateAdmin(user);
+            _authService.CreateAdminUser(user);
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
-            return View(_authService.GetAdminById(id));
+            return View(_authService.GetAdminUserById(id));
         }
 
         [HttpPost]
         public IActionResult Edit(AdminUser user)
         {
-            _authService.UpdateAdmin(user);
+            _authService.UpdateAdminUser(user);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            _authService.SoftDeleteAdmin(id);
+            _authService.DeleteAdminUser(id);
             return RedirectToAction("Index");
         }
     }

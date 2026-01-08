@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using NeksaraArief.Service.Interfaces;
+using NeksaraArief.Service.Implementations;
 using NeksaraArief.Models;
 
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/admin")]
-    public class AdminController : Controller
+    public class AdminController : BaseAuthenticatedController
     {
         private readonly IAdminService _adminService;
 
@@ -41,7 +42,7 @@ namespace NeksaraArief.Controllers.Admin
         }
 
         [HttpPost("create")]
-        public IActionResult Create(Admin admin)
+        public IActionResult Create(AdminUser admin)
         {
             if (!IsSuperAdmin())
             {
@@ -64,7 +65,7 @@ namespace NeksaraArief.Controllers.Admin
         }
 
         [HttpPost("edit")]
-        public IActionResult Edit(Admin admin)
+        public IActionResult Edit(AdminUser admin)
         {
             if (!IsSuperAdmin())
             {

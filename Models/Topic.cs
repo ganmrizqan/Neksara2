@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NeksaraArief.Models;
+namespace NeksaraArief.Models
 {
     public class Topic
     {
@@ -18,9 +18,9 @@ namespace NeksaraArief.Models;
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-        public int ViewCount { get; set; } = 0;
-        public bool ISDeleted { get; set; } = false;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public int ViewCount { get; set; }
+        public bool ISDeleted { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         public ICollection<TopicFeedback> TopicFeedbacks { get; set; }
     }

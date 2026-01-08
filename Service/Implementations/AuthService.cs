@@ -14,50 +14,51 @@ namespace NeksaraArief.Service.Implementations
             _context = context;
         }
 
-        public Admin Login(string email, string password)
+        public AdminUser Login(string email, string password)
         {
-            return _context.Admins.FirstOrDefault(a => 
-                a.Email == email &&
-                a.Password == password &&
-                !a.IsDeleted);
+            return _context.AdminUsers
+                .FirstOrDefault(a => 
+                    a.Email == email &&
+                    a.Password == password &&
+                    !a.IsDeleted);
         }
 
-        public List<Admin> GetAdmins()
+        public List<AdminUser> GetAdminUsers()
         {
-            return _context.Admins
+            return _context.AdminUsers
                 .Where(a => !a.IsDeleted)
                 .ToList();
         }
 
-        public Admin GetAdminById(int id)
+        public AdminUser GetAdminUserById(int id)
         {
-            return _context.Admins.Find(id);
+            return _context.AdminUsers.Find(id);
         }
 
-        public void CreateAdmin(Admin admin)
+        public void CreateAdminUser(AdminUser adminUser)
         {
-            admin.CreatedAt = DateTime.UtcNow;
-            admin.IsDeleted = false;
+            adminUser.CreatedAt = DateTime.UtcNow;
+            adminUser.IsDeleted = false;
 
-            _context.Admins.Add(admin);
+            _context.AdminUsers.Add(adminUser);
             _context.SaveChanges();
         }
 
-        public void UpdateAdmin(Admin admin)
+        public void UpdateAdminUser(AdminUser adminUser)
         {
-            _context.Admins.Update(admin);
+            _context.AdminUsers.Update(adminUser);
             _context.SaveChanges();
         }
 
-        public void DeleteAdmin(int id)
+        public void DeleteAdminUser(int id)
         {
-            var admin = _context.Admins.Find(id);
-            if (admin == null)
+            var adminUser = _context.AdminUsers.Find(id);
+            if (adminUser == null)
             {
                 return;
             }
 
-            admin.IsDeleted = true;
+            adminUser.IsDeleted = true;
             _context.SaveChanges();
         }
     }

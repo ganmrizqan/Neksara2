@@ -5,7 +5,7 @@ using NeksaraArief.Models;
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/archive")]
-    public class ArchiveController : Controller
+    public class ArchiveController : BaseAuthenticatedController
     {
         private readonly IArchiveService _archiveService;
 

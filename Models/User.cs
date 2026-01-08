@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace NeksaraArief.Models
 {
     public class User

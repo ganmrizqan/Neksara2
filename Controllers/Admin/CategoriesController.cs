@@ -5,7 +5,7 @@ using NeksaraArief.Models;
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/categories")]
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseAuthenticatedController
     {
         private readonly ICategoryService _categoryService;
 
@@ -35,14 +35,14 @@ namespace NeksaraArief.Controllers.Admin
         [HttpPost("create")]
         public IActionResult Create(Category category, IFormFile CoverImage)
         {
-            if (coverImage == null)
+            if (CoverImage == null)
             {
-                var fileName = Guid.NewGuid() + Path.GetExtension(coverImage.FileName);
+                var fileName = Guid.NewGuid() + Path.GetExtension(CoverImage.FileName);
                 var filePath = Path.Combine("wwwroot/uploads/categories", fileName);
 
                 Directory.CreateDirectory("wwwroot/uploads/categories");
                 using var stream = new FileStream(filePath, FileMode.Create);
-                coverImage.CopyTo(stream);
+                CoverImage.CopyTo(stream);
 
                 category.CoverImage = "/uploads/categories/" + fileName;
             }
@@ -60,14 +60,14 @@ namespace NeksaraArief.Controllers.Admin
         [HttpPost("edit")]
         public IActionResult Edit(Category category, IFormFile CoverImage)
         {
-            if (coverImage != null)
+            if (CoverImage != null)
             {
-                var fileName = Guid.NewGuid() + Path.GetExtension(coverImage.FileName);
+                var fileName = Guid.NewGuid() + Path.GetExtension(CoverImage.FileName);
                 var filePath = Path.Combine("wwwroot/uploads/categories", fileName);
 
                 Directory.CreateDirectory("wwwroot/uploads/categories");
                 using var stream = new FileStream(filePath, FileMode.Create);
-                coverImage.CopyTo(stream);
+                CoverImage.CopyTo(stream);
 
                 category.CoverImage = "/uploads/categories/" + fileName;
             }

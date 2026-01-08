@@ -1,12 +1,14 @@
+using NeksaraArief.Models;
+
 namespace NeksaraArief.Service.Interfaces
 {
     public interface IAuthService
     {
-        Admin Login(string email, string password);
-        List<Admin> GetAdmins();
-        Admin GetAdminById(int id);
-        void CreateAdmin(Admin admin);
-        void UpdateAdmin(Admin admin);
-        void DeleteAdmin(int id);
+        AdminUser Login(string email, string password);
+        List<AdminUser> GetAdminUsers();
+        AdminUser GetAdminUserById(int id);
+        void CreateAdminUser(AdminUser adminUser);
+        void UpdateAdminUser(AdminUser adminUser);
+        void DeleteAdminUser(int id);
     }
 }

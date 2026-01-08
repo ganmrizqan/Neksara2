@@ -58,13 +58,13 @@ namespace NeksaraArief.Service.Implementations
             if (!string.IsNullOrEmpty(search))
             {
                 topics = topics.Where(t => 
-                    t.CategoryName.Contains(search) || 
+                    t.TopicName.Contains(search) || 
                     t.Description.Contains(search));
             }
 
             if (rating.HasValue)
             {
-                topics = topics.Where(t => t.Rating == rating.Value);
+                topics = topics.Where(t => t.ViewCount == rating.Value);
             }
 
             topics = sort switch
@@ -73,8 +73,8 @@ namespace NeksaraArief.Service.Implementations
                 "name-desc" => topics.OrderByDescending(t => t.TopicName),
                 "view_desc" => topics.OrderByDescending(t => t.ViewCount),
                 "view_asc" => topics.OrderBy(t => t.ViewCount),
-                "rating_desc" => topics.OrderByDescending(t => t.Rating),
-                "rating_asc" => topics.OrderBy(t => t.Rating),
+                "rating_desc" => topics.OrderByDescending(t => t.ViewCount),
+                "rating_asc" => topics.OrderBy(t => t.ViewCount),
                 _ => topics.OrderByDescending(t => t.CreatedAt)
             };
 
@@ -91,6 +91,8 @@ namespace NeksaraArief.Service.Implementations
         {
             category.CreatedAt = DateTime.UtcNow;
             category.ViewCount = 0;
+            category.ISDeleted = false;
+
             _context.Categories.Add(category);
             _context.SaveChanges();
         }
@@ -147,6 +149,22 @@ namespace NeksaraArief.Service.Implementations
 
             category.ViewCount++;
             _context.SaveChanges();
+        }
+
+        public List<Category> GetPublic()
+        {
+            return _context.Categories
+                .Where(c => !c.ISDeleted)
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+        }
+
+        public Category GetDetailPublic(int id)
+        {
+            return _context.Categories
+                .Include(c => c.Topics.Where(t => !t.ISDeleted))
+                .FirstOrDefault(c => 
+                    c.CategoryId == id && !c.ISDeleted);
         }
     }
 }

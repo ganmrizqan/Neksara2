@@ -1,0 +1,45 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5>Total Kategori</h5>
+                <h2>@ViewBag.TotalCategory</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5>Total Topik</h5>
+                <h2>@ViewBag.TotalTopic</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5>Feedback Pending</h5>
+                <h2>@ViewBag.PendingFeedback</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5>Testimoni Pending</h5>
+                <h2>@ViewBag.PendingTestimoni</h2>
+            </div>
+        </div>
+    </div>
+
+</div>

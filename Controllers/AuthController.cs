@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using NeksaraArief.Service.Implementations;
 using NeksaraArief.Service.Interfaces;
 using NeksaraArief.Models;
-// using NeksaraArief.Service.Implementations;
 
 namespace NeksaraArief.Controllers
 {
@@ -35,7 +35,9 @@ namespace NeksaraArief.Controllers
             HttpContext.Session.SetString("Role", admin.Role);
             HttpContext.Session.SetString("Name", admin.Name);
 
-            return RedirectToAction("Index", "Categories");
+            return RedirectToAction(nameof(Index), "AdminDashboard");
+
+            // return Content("Login berhasil");
         }
 
         [HttpPost]

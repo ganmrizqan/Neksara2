@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NeksaraArief.Models;
+namespace NeksaraArief.Models
 {
-    public class Admin
+    public class AdminUser
     {
         [Key]
         public int Id { get; set; }

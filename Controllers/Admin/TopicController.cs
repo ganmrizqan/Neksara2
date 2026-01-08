@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using NeksaraArief.Service.Interfaces;
 using NeksaraArief.Models;
+using NeksaraArief.Data;
 
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/topic")]
-    public class TopicController : Controller
+    public class TopicController : BaseAuthenticatedController
     {
         private readonly ITopicService _topicService;
         private readonly NeksaraDbContext _context;
@@ -23,7 +24,7 @@ namespace NeksaraArief.Controllers.Admin
 
             foreach (var topic in topics)
             {
-                topic.Rating = (int)Math.Round(_topicService.GetAverageRating(topic.TopicId));
+                topic.ViewCount = (int)Math.Round(_topicService.GetAverageRating(topic.TopicId));
             }
 
             return View(topics);

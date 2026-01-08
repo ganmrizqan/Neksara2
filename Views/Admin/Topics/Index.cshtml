@@ -1,6 +1,6 @@
 @model List<Topic>
 
-@{ Layout = "_AdminLayout" }
+@{ Layout = "_AdminLayout"; }
 
 <h2>Topics</h2>
 <hr />
@@ -29,7 +29,7 @@
         <th>Category</th>
         <th>Total View</th>
         <th>Created At</th>
-        <th>Rating</th>
+        <th>Views</th>
         <th>Actions</th>
     </tr>
 
@@ -43,7 +43,7 @@
         <td>
             @for (int i = 1; i <= 5; i++)
             {
-                <span>@(i <= topic.Rating ? "⭐" : "")</span>
+                <span>@(i <= topic.ViewCount ? "⭐" : "")</span>
             }
         </td>
         <td>

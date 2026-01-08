@@ -53,7 +53,7 @@ namespace NeksaraArief.Service.Implementations
             {
                 query = query.Where(x => 
                     x.UserName.Contains(search) ||
-                    x.Description.Contains(search)
+                    x.Deskripsi.Contains(search)
                     );
             }
 
@@ -62,16 +62,16 @@ namespace NeksaraArief.Service.Implementations
 
         public List<TopicFeedback> GetDeletedTopicFeedback(string search)
         {
-            var query = _context.TopicFeedback
+            var query = _context.TopicFeedbacks
                 .Include(x => x.Topic)
-                .Where(x => x.ISDeleted)
+                .Where(x => x.IsDeleted)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(x => 
                     x.UserName.Contains(search) ||
-                    x.Description.Contains(search)
+                    x.Comment.Contains(search)
                     );
             }
 
@@ -91,7 +91,7 @@ namespace NeksaraArief.Service.Implementations
                     break;
 
                 case "TopicFeedback":
-                    _context.TopicFeedback.Find(id).ISDeleted = false;
+                    _context.TopicFeedbacks.Find(id).IsDeleted = false;
                     break;
 
                 case "Testimoni":
@@ -115,7 +115,7 @@ namespace NeksaraArief.Service.Implementations
                     break;
 
                 case "TopicFeedback":
-                    _context.TopicFeedback.Remove(_context.TopicFeedback.Find(id));
+                    _context.TopicFeedbacks.Remove(_context.TopicFeedbacks.Find(id));
                     break;
 
                 case "Testimoni":

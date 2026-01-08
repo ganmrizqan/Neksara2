@@ -18,13 +18,13 @@ namespace NeksaraArief.Controllers.User
 
         public IActionResult Detail(int id)
         {
-            var topic = _topicService.GetDetail(id);
+            _topicService.IncrementView(id);
 
             ViewBag.AverageRating = _topicService.GetAverageRating(id);
 
             ViewBag.Feedbacks = _topicFeedbackService.GetApprovedByTopic(id);
 
-            return View(topic);
+            return View(_topicService.GetDetail(id));
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@ namespace NeksaraArief.Controllers.User
             topicFeedback.TopicId = id;
             _topicFeedbackService.SubmitFeedback(topicFeedback);
 
-            TempData["FeedbackMessage"] = "Feedback sedang ditinjau;
+            TempData["FeedbackMessage"] = "Feedback sedang ditinjau";
             return RedirectToAction("Detail", new { id });
         }
     }

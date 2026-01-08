@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NeksaraArief.Data;
-using NeksaraArief.Services.Interfaces;
-using NeksaraArief.Services.Implementations;
+using NeksaraArief.Service.Interfaces;
+using NeksaraArief.Service.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 

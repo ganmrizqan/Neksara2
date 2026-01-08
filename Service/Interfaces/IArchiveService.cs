@@ -1,3 +1,5 @@
+using NeksaraArief.Models;
+
 namespace NeksaraArief.Service.Interfaces
 {
     public interface IArchiveService

@@ -5,7 +5,7 @@ using NeksaraArief.Models;
 namespace NeksaraArief.Controllers.Admin
 {
     [Route("admin/testimoni")]
-    public class TestimoniController : Controller
+    public class TestimoniController : BaseAuthenticatedController
     {
         private readonly ITestimoniService _testimoniService;
 

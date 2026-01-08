@@ -9,51 +9,113 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NeksaraArief
 build_property.RootNamespace = NeksaraArief
-build_property.ProjectDir = D:\Project\Paradaya\NeksaraArief\
+build_property.ProjectDir = C:\Users\gan_m\Downloads\NITIP\Paradaya\NeksaraArief\NeksaraArief\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Project\Paradaya\NeksaraArief
+build_property.MSBuildProjectDirectory = C:\Users\gan_m\Downloads\NITIP\Paradaya\NeksaraArief\NeksaraArief
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Admin/Categories/Index.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/AdminDashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Archive/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXJjaGl2ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Auth/Login.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Testimoni/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVzdGltb25pXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Testimoni/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVzdGltb25pXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Testimoni/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVzdGltb25pXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/TopicFeedback/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9waWNGZWVkYmFja1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Topics/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9waWNzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Topics/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9waWNzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Topics/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9waWNzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Admin/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Home/Index.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Home/Privacy.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Shared/Error.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/_ViewImports.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/User/Dashboard/CreateTestimoni.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEYXNoYm9hcmRcQ3JlYXRlVGVzdGltb25pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/User/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEYXNoYm9hcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/User/Topic/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUb3BpY1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/_ViewStart.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Project/Paradaya/NeksaraArief/Views/Shared/_Layout.cshtml]
+[C:/Users/gan_m/Downloads/NITIP/Paradaya/NeksaraArief/NeksaraArief/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zy3v16fof6

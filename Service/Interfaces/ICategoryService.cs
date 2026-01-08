@@ -1,3 +1,5 @@
+using NeksaraArief.Models;
+
 namespace NeksaraArief.Service.Interfaces
 {
     public interface ICategoryService
@@ -16,5 +18,8 @@ namespace NeksaraArief.Service.Interfaces
         void Update(Category category);
         void IncrementView(int id);
         void SoftDelete(int id);
+
+        List<Category> GetPublic();
+        Category GetDetailPublic(int id);
     }
 }

@@ -1,11 +1,13 @@
+using NeksaraArief.Models;
+
 namespace NeksaraArief.Service.Interfaces
 {
     public interface IAdminService
     {
-        List<Admin> Get(string search, string role);
-        Admin GetById(int id);
-        void Create(Admin admin);
-        void Update(Admin admin);
+        List<AdminUser> Get(string search, string role);
+        AdminUser GetById(int id);
+        void Create(AdminUser admin);
+        void Update(AdminUser admin);
         void SoftDelete(int id);
     }
 }

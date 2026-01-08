@@ -14,9 +14,9 @@ namespace NeksaraArief.Service.Implementations
             _context = context;
         }
 
-        public List<Admin> Get(string search, string role)
+        public List<AdminUser> Get(string search, string role)
         {
-            var query = _context.Admins
+            var query = _context.AdminUsers
                 .Where(a => !a.IsDeleted)
                 .AsQueryable();
 
@@ -35,32 +35,32 @@ namespace NeksaraArief.Service.Implementations
             return query.OrderBy(a => a.Name).ToList();
         }
 
-        public Admin GetById(int id)
+        public AdminUser GetById(int id)
         {
-            return _context.Admins.Find(id);
+            return _context.AdminUsers.Find(id);
         }
 
-        public void Create(Admin admin)
+        public void Create(AdminUser admin)
         {
             admin.CreatedAt = DateTime.UtcNow;
-            _context.Admins.Add(admin);
+            _context.AdminUsers.Add(admin);
             _context.SaveChanges();
         }
 
-        public void Update(Admin admin)
+        public void Update(AdminUser admin)
         {
-            _context.Admins.Update(admin);
+            _context.AdminUsers.Update(admin);
             _context.SaveChanges();
         }
 
         public void SoftDelete(int id)
         {
-            var admin = _context.Admins.Find(id);
+            var admin = _context.AdminUsers.Find(id);
             admin.IsDeleted = true;
 
             _context.ArchiveItems.Add(new ArchiveItem
             {
-                Entity = "Admin",
+                Entity = "AdminUser",
                 EntityId = id,
                 DeletedAt = DateTime.UtcNow
             });
