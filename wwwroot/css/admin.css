@@ -1,0 +1,77 @@
+/* WRAPPER */
+.category-wrapper {
+    width: 100%;
+}
+
+/* HEADER */
+.category-header {
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    font-weight: 600;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 12px;
+}
+
+/* BODY */
+.category-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ROW */
+.category-row {
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    background: #f8fbff;
+    padding: 18px 22px;
+    border-radius: 12px;
+    align-items: center;
+}
+
+/* TEXT */
+.category-name {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.category-meta {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ACTION */
+.category-action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.action-icon i {
+    font-size: 16px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.action-icon:hover i {
+    color: #0d6efd;
+}
+
+/* FILTER BAR */
+.filter-input {
+    height: 34px;
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.filter-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+
+    display: inline-flex;
+    align-items: center;
+
+    white-space: nowrap;
+    /* 🔑 ini yang bikin teks gak kepotong */
+}

@@ -1,0 +1,75 @@
+@model CategoryDetailAdminViewModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>@Model.Category.CategoryName</h2>
+<p>@Model.Category.Description</p>
+<p>Posted @((DateTime.Now - Model.Category.CreatedAt).Days) days ago</p>
+
+<hr />
+
+<p><strong>@Model.TotalTopic</strong> Topik</p>
+<p><strong>@Model.TotalViews</strong> Views</p>
+
+<hr />
+
+<form method="get">
+    <input type="hidden" name="id" value="@Model.Category.CategoryId" />
+    <input type="text" name="search" placeholder="Cari topik..." />
+    <select name="sort">
+        <option value="">Default</option>
+        <option value="name_asc">Nama A-Z</option>
+        <option value="name_desc">Nama Z-A</option>
+        <option value="views_desc">Views Terbanyak</option>
+        <option value="views_asc">Views Tersedikit</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<hr />
+
+<a asp-area="Admin"
+   asp-controller="Topic"
+   asp-action="Create"
+   asp-route-categoryId="@Model.Category.CategoryId">
+   Tambah Topik
+</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Topik</th>
+            <th>Views</th>
+            <th>Posted</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var topic in Model.Topics)
+    {
+        <tr>
+            <td>@topic.TopicName</td>
+            <td>@topic.ViewCount</td>
+            <td>@((DateTime.Now - topic.CreatedAt).Days) days ago</td>
+            <td>
+                <a asp-area="Admin"
+                   asp-controller="Topic"
+                   asp-action="Edit"
+                   asp-route-id="@topic.TopicId">
+                   Edit
+                </a>
+                |
+                <form asp-area="Admin"
+                      asp-controller="Topic"
+                      asp-action="Delete"
+                      asp-route-id="@topic.TopicId"
+                      method="post"
+                      style="display:inline">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0V2xiD50xxY=",
+  "dgSpecHash": "9Fj7UzR3aCE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gan_m\\Downloads\\NITIP\\Paradaya\\NeksaraArief\\NeksaraArief\\NeksaraArief.csproj",
+  "projectFilePath": "D:\\Project\\Paradaya\\NeksaraArief\\NeksaraArief.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gan_m\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\gan_m\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

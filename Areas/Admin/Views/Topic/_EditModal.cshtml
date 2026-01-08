@@ -1,0 +1,112 @@
+@model NeksaraArief.Models.Topic
+
+<div class="modal fade"
+     id="editTopicModal-@Model.TopicId"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <form asp-area="Admin"
+                  asp-controller="Topic"
+                  asp-action="Update"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <!-- hidden id -->
+                <input type="hidden" asp-for="TopicId" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Topik</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- NAMA TOPIK -->
+                    <div class="mb-3">
+                        <label class="form-label">Nama Topik</label>
+                        <input asp-for="TopicName"
+                               class="form-control" />
+                    </div>
+
+                    <!-- KATEGORI -->
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select asp-for="CategoryId"
+                                class="form-select">
+
+                            <option value="">-- Pilih Kategori --</option>
+
+                            @if (ViewBag.Categories != null)
+                            {
+                                foreach (var c in ViewBag.Categories)
+                                {
+                                    <option value="@c.CategoryId"
+                                            selected="@(c.CategoryId == Model.CategoryId)">
+                                        @c.CategoryName
+                                    </option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <!-- GAMBAR LAMA -->
+                    @if (!string.IsNullOrEmpty(Model.PictTopic))
+                    {
+                        <div class="mb-3">
+                            <label class="form-label">Sampul Saat Ini</label>
+                            <div>
+                                <img src="@Model.PictTopic"
+                                     class="img-fluid rounded"
+                                     style="max-height:150px;" />
+                            </div>
+                        </div>
+                    }
+
+                    <!-- GANTI GAMBAR -->
+                    <div class="mb-3">
+                        <label class="form-label">Ganti Sampul</label>
+                        <input type="file"
+                               name="pictTopic"
+                               class="form-control" />
+                    </div>
+
+                    <!-- DESKRIPSI -->
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  rows="4"></textarea>
+                    </div>
+
+                    <!-- NAMA TOPIK -->
+                    <div class="mb-3">
+                        <label class="form-label">Video URL (Youtube)</label>
+                        <input asp-for="VideoUrl"
+                               class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Batal
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Simpan Perubahan
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

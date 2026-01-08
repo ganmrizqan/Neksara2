@@ -1,0 +1,87 @@
+@model NeksaraArief.Models.Category
+
+<div class="modal fade"
+     id="editCategoryModal-@Model.CategoryId"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <form asp-area="Admin"
+                  asp-controller="Categories"
+                  asp-action="Edit"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <!-- WAJIB: ID -->
+                <input type="hidden" asp-for="CategoryId" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Kategori</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Kategori</label>
+                        <input asp-for="CategoryName"
+                               class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea asp-for="Description"
+                                  class="form-control"></textarea>
+                    </div>
+
+                    <!-- GAMBAR LAMA -->
+                    @if (!string.IsNullOrEmpty(Model.CoverImage))
+                    {
+                        <div class="mb-3">
+                            <label class="form-label">Sampul Saat Ini</label>
+                            <div>
+                                <img src="@Model.CoverImage"
+                                     class="img-fluid rounded"
+                                     style="max-height:150px;" />
+                            </div>
+                        </div>
+                    }
+
+                    <div class="mb-3">
+                        <label class="form-label">Cover Image</label>
+                        <input type="file"
+                               name="coverImage"
+                               class="form-control" />
+
+                        <!-- @if (!string.IsNullOrEmpty(Model.CoverImage))
+                        {
+                            <small class="text-muted d-block mt-1">
+                                Current image:
+                                <a href="@Model.CoverImage"
+                                   target="_blank">
+                                    View
+                                </a>
+                            </small>
+                        } -->
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Batal
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Simpan Perubahan
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

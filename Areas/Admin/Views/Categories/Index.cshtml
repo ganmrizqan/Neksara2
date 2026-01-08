@@ -1,0 +1,152 @@
+@model List<NeksaraArief.Models.Category>
+
+@{
+    ViewData["Title"] = "Kategori";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+
+<!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold mb-0">Kategori</h4>
+
+        <form method="get"
+            asp-area="Admin"
+            asp-controller="Categories"
+            asp-action="Index"
+            class="d-flex gap-2">
+
+        <input type="text"
+            name="search"
+            value="@ViewBag.CurrentSearch"
+            class="form-control form-control-sm filter-input"
+            placeholder="Cari Kategori..." />
+
+        <select name="sort"
+            class="form-select form-select-sm filter-input"
+            onchange="this.form.submit()">
+            <option value="">Default</option>
+            <option value="name_asc">Nama A–Z</option>
+            <option value="name_desc">Nama Z–A</option>
+            <option value="topic_desc">Topik Terbanyak</option>
+            <option value="topic_asc">Topik Tersedikit</option>
+            <option value="view_desc">View Terbanyak</option>
+            <option value="view_asc">View Tersedikit</option>
+        </select>
+
+        <button type="button"
+            class="btn btn-primary btn-sm filter-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#createCategoryModal">
+            Tambah Kategori
+        </button>
+        </form>
+    </div>
+
+<!-- WRAPPER (INI KUNCI FIX) -->
+<!-- <div class="category-wrapper"> -->
+
+    <!-- HEADER TABLE -->
+    <div class="row fw-semibold text-muted mb-2 px-2">
+        <div class="col-md-5">Kategori</div>
+        <div class="col-md-3">Topik</div>
+        <div class="col-md-2">Views</div>
+        <div class="col-md-2 text-end"></div>
+    </div>
+
+    <hr class="mt-0 mb-3" />
+
+    <!-- BODY -->
+    <!-- <div class="category-body"> -->
+        @foreach (var item in Model)
+        {
+            <div class="row align-items-center bg-light rounded-3 px-3 py-3 mb-3">
+
+                <div class="col-md-5">
+                    <div class="fw-semibold text-primary">
+                        @item.CategoryName
+                    </div>
+                    <small class="text-muted">
+                        Posted @item.CreatedAt.ToString("d MMM yyyy")
+                    </small>
+                </div>
+            <!-- DateTime displayDate =
+                item.UpdatedAt > new DateTime(2000, 1, 1)
+                ? item.UpdatedAt
+                : item.CreatedAt;
+
+            var daysAgo = (DateTime.UtcNow - displayDate).Days;
+            var topicCount = item.Topics == null ? 0 : item.Topics.Count; -->
+
+            @* <div class="col-md-3 fw-semibold">
+                <div>
+                    <div class="category-name">@item.CategoryName</div>
+                    <div class="category-meta">Posted @daysAgo days ago</div>
+                </div> *@
+
+                <div class="col-md-3 fw-semibold">
+                    @item.Topics.Count Topik
+                </div>
+
+                <div class="col-md-2 fw-semibold">
+                    @item.ViewCount Views
+                </div>
+
+                <div class="col-md-2 text-end">
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <!-- EDIT -->
+                        <button class="btn btn-sm btn-outline-primary action-btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editCategoryModal-@item.CategoryId">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+
+                        <!-- DELETE -->
+                        <form asp-area="Admin"
+                              asp-controller="Categories"
+                              asp-action="Delete"
+                              method="post">
+                            <input type="hidden"
+                                   name="id"
+                                   value="@item.CategoryId" />
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-outline-danger action-btn"
+                                    onclick="return confirm('Hapus kategori ini?')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+                @* <div class="category-action">
+                    <button type="button"
+                            class="btn p-0 action-icon"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editCategoryModal-@item.CategoryId">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+
+                    <form asp-area="Admin"
+                          asp-controller="Categories"
+                          asp-action="Delete"
+                          asp-route-id="@item.CategoryId"
+                          method="post"
+                          onsubmit="return confirm('Yakin hapus kategori ini?')">
+                        <button type="submit"
+                                class="btn p-0 action-icon text-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </div> *@
+            </div>
+
+            @await Html.PartialAsync("_EditModal", item)
+        }
+    </div>
+</div>
+
+@await Html.PartialAsync("_CreateModal", new NeksaraArief.Models.Category())

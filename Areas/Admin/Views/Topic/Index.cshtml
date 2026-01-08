@@ -1,0 +1,119 @@
+@model List<NeksaraArief.Models.Topic>
+
+@{
+    ViewData["Title"] = "Topik";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- HEADER PAGE -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold mb-0">Topik</h4>
+
+        <form method="get"
+            asp-area="Admin"
+            asp-controller="Topic"
+            asp-action="Index"
+            class="d-flex gap-2">
+
+            <input type="text"
+                   name="search"
+                   value="@ViewBag.CurrentSearch"
+                   class="form-control form-control-sm filter-input"
+                   placeholder="Cari Topik..." />
+
+            <select name="sort"
+                class="form-select form-select-sm filter-input"
+                onchange="this.form.submit()">
+                <option value="">Default</option>
+                <option value="name-asc">Nama A–Z</option>
+                <option value="name-desc">Nama Z–A</option>
+                <option value="view-desc">View Terbanyak</option>
+                <option value="view-asc">View Tersedikit</option>
+            </select>
+
+            <button type="button"
+                    class="btn btn-primary btn-sm filter-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#createTopicModal">
+                Tambah Topik
+            </button>
+        </form>
+    </div>
+
+    <!-- TABLE HEADER -->
+    <div class="row fw-semibold text-muted mb-2 px-2">
+        <div class="col-md-5">Topik</div>
+        <div class="col-md-3">Kategori</div>
+        <div class="col-md-2">Views</div>
+        <div class="col-md-2 text-end"></div>
+    </div>
+
+    <hr class="mt-0 mb-3" />
+
+    <!-- LIST -->
+    @foreach (var item in Model)
+    {
+        <div class="row align-items-center bg-light rounded-3 px-3 py-3 mb-3">
+
+            <!-- TOPIK -->
+            <div class="col-md-5">
+                <div class="fw-semibold text-primary">
+                    @item.TopicName
+                </div>
+                <small class="text-muted">
+                    Posted @item.CreatedAt.ToString("d MMM yyyy")
+                </small>
+            </div>
+
+            <!-- KATEGORI -->
+            <div class="col-md-3 fw-semibold">
+                @item.Category?.CategoryName
+            </div>
+
+            <!-- VIEWS -->
+            <div class="col-md-2 fw-semibold">
+                @item.ViewCount Views
+            </div>
+
+            <!-- ACTION -->
+            <div class="col-md-2 text-end">
+                <div class="d-flex justify-content-end gap-2">
+
+                    <!-- EDIT -->
+                    <button class="btn btn-sm btn-outline-primary action-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editTopicModal-@item.TopicId">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+
+                    <!-- DELETE -->
+                    <form asp-area="Admin"
+                          asp-controller="Topic"
+                          asp-action="Delete"
+                          method="post">
+                        <input type="hidden"
+                               name="id"
+                               value="@item.TopicId" />
+
+                        <button type="submit"
+                                class="btn btn-sm btn-outline-danger action-btn"
+                                onclick="return confirm('Hapus topik ini?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EDIT MODAL -->
+        @await Html.PartialAsync("_EditModal", item)
+    }
+
+</div>
+
+<!-- CREATE MODAL -->
+@await Html.PartialAsync("_CreateModal", new NeksaraArief.Models.Topic())

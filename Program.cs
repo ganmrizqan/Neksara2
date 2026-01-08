@@ -43,8 +43,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=AdminDashboard}/{action=Index}/{id?}"); 
 
 app.MapControllerRoute(
     name: "default",

@@ -117,7 +117,6 @@ namespace NeksaraArief.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CoverImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -129,6 +128,9 @@ namespace NeksaraArief.Migrations
 
                     b.Property<bool>("ISDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ViewCount")
                         .HasColumnType("int");
@@ -197,13 +199,15 @@ namespace NeksaraArief.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PictTopic")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TopicName")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("VideoUrl")
                         .IsRequired()

@@ -31,11 +31,11 @@ namespace NeksaraArief.Controllers
                 return View();
             }
 
-            HttpContext.Session.SetString("Email", admin.Email);
-            HttpContext.Session.SetString("Role", admin.Role);
-            HttpContext.Session.SetString("Name", admin.Name);
+            HttpContext.Session.SetString("AdminEmail", admin.Email);
+            HttpContext.Session.SetString("AdminRole", admin.Role);
+            HttpContext.Session.SetString("AdminName", admin.Name);
 
-            return RedirectToAction(nameof(Index), "AdminDashboard");
+            return RedirectToAction("Index", "AdminDashboard", new { area = "Admin" });
 
             // return Content("Login berhasil");
         }
@@ -44,7 +44,8 @@ namespace NeksaraArief.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            Response.Cookies.Delete(".AspNetCore.Session");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

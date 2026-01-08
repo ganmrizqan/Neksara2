@@ -23,8 +23,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.Categories = _categoryService.GetPublic();
-        ViewBag.Topics = _topicService.GetPopular(6);
+        ViewBag.Categories = _categoryService.GetAll(null, null);
+        ViewBag.Topics = _topicService.GetAll(null, null);
         ViewBag.Testimonials = _testimoniService.GetApproved();
         return View();
     }
